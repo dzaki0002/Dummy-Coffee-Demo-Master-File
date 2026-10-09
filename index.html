@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dummy Coffee — Cafe modern dengan suasana nyaman dan menu pilihan terbaik."
+    />
+    <title>Dummy Coffee</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- =============================================
+       Navbar — fixed-top, collapses to hamburger
+       on screens < 992px (Bootstrap lg breakpoint)
+       ============================================= -->
+    <nav
+      id="mainNavbar"
+      class="navbar navbar-expand-lg fixed-top"
+      aria-label="Navigasi utama Dummy Coffee"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#hero">Dummy Coffee</a>
+
+        <!-- Hamburger toggler — hanya muncul di layar < lg (< 992px) -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Buka atau tutup menu navigasi"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav links — di-collapse di mobile, tampil penuh di desktop -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#hero">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Layanan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Ulasan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#location">Lokasi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Kontak</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+    <!-- =============================================
+       Hero Section — layar penuh, background image + overlay,
+       konten teks di tengah secara vertikal dan horizontal
+       ============================================= -->
+    <section id="hero" aria-label="Selamat datang di Dummy Coffee">
+      <div
+        class="hero-content d-flex flex-column justify-content-center align-items-center text-center"
+      >
+        <h1 class="hero-title">Selamat Datang di<br />Dummy Coffee</h1>
+        <p class="hero-subtitle">
+          Nikmati cita rasa kopi terbaik di suasana yang nyaman dan modern.
+        </p>
+        <div class="d-flex flex-column flex-md-row gap-3">
+          <a href="#menu" class="btn btn-lg hero-btn" role="button">
+            Menu Kami
+            <i class="bi bi-arrow-down-circle ms-2" aria-hidden="true"></i>
+          </a>
+          <a href="#location" class="btn btn-lg hero-btn" role="button">
+            lokasi Kami
+            <i class="bi bi-arrow-down-circle ms-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       About Section — layout dua kolom (gambar + teks)
+       Kolom otomatis menjadi satu tumpukan di layar < lg (< 992px)
+       sesuai perilaku default Bootstrap col-lg-6
+       ============================================= -->
+    <section id="about" class="py-5" aria-label="Tentang Dummy Coffee">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="section-divider mx-auto" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <img
+              src="img-dummy/front-coffee-shop.jfif"
+              class="img-fluid about-img"
+              alt="Suasana dalam ruangan Dummy Coffee dengan dekorasi modern dan hangat"
+              onerror="
+                this.src = 'https://placehold.co/600x450?text=Dummy+Coffee'
+              "
+            />
+          </div>
+
+          <div class="col-lg-6">
+            <h3 class="about-subtitle mb-3">Kisah Dummy Coffee</h3>
+            <p class="about-description mb-4">
+              Dummy Coffee lahir dari kecintaan mendalam terhadap seni meracik
+              kopi dan kerinduan akan ruang yang terasa seperti rumah kedua.
+              Kami menghadirkan biji kopi pilihan dari berbagai daerah
+              Nusantara, diseduh dengan teknik yang tepat oleh barista
+              berpengalaman. Setiap tegukan dirancang untuk memberi Anda jeda
+              sempurna di tengah kesibukan hari.
+            </p>
+            <ul class="about-list list-unstyled">
+              <li class="about-list-item d-flex align-items-start mb-3">
+                <i
+                  class="bi bi-check-circle-fill about-list-icon me-3 flex-shrink-0"
+                  aria-hidden="true"
+                ></i>
+                <span
+                  ><strong>Biji Kopi Single Origin</strong> — dipilih langsung
+                  dari petani lokal terpercaya di Aceh, Toraja, dan
+                  Flores.</span
+                >
+              </li>
+
+              <li class="about-list-item d-flex align-items-start mb-3">
+                <i
+                  class="bi bi-check-circle-fill about-list-icon me-3 flex-shrink-0"
+                  aria-hidden="true"
+                ></i>
+                <span
+                  ><strong>Suasana Nyaman &amp; Modern</strong> — desain
+                  interior hangat yang mendukung kerja, belajar, maupun
+                  berkumpul.</span
+                >
+              </li>
+
+              <li class="about-list-item d-flex align-items-start mb-3">
+                <i
+                  class="bi bi-check-circle-fill about-list-icon me-3 flex-shrink-0"
+                  aria-hidden="true"
+                ></i>
+                <span
+                  ><strong>Barista Bersertifikat</strong> — tim kami terlatih
+                  secara profesional dan siap merekomendasikan pilihan
+                  terbaik.</span
+                >
+              </li>
+
+              <li class="about-list-item d-flex align-items-start mb-3">
+                <i
+                  class="bi bi-check-circle-fill about-list-icon me-3 flex-shrink-0"
+                  aria-hidden="true"
+                ></i>
+                <span
+                  ><strong>Menu Variatif</strong> — dari espresso klasik hingga
+                  kreasi non-kopi, tersedia pilihan untuk semua selera.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       Menu Section — filter tombol kategori + card grid
+       Filtering dijalankan oleh JavaScript (Task 5.3)
+       ============================================= -->
+    <section id="menu" class="py-5" aria-label="Menu unggulan Dummy Coffee">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title">Menu Unggulan</h2>
+            <div class="section-divider mx-auto" aria-hidden="true"></div>
+            <a
+              href="https://drive.google.com/"
+              class="btn btn-lg menu-btn"
+              role="button"
+              target="_blank"
+            >
+              lihat semua
+              <i class="bi bi-file-earmark ms-2" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="menu-filters d-flex flex-wrap justify-content-center gap-2 mb-5"
+          role="group"
+          aria-label="Filter kategori menu"
+        >
+          <button class="btn menu-filter-btn active" data-filter="semua">
+            Semua
+          </button>
+          <button class="btn menu-filter-btn" data-filter="kopi">Kopi</button>
+          <button class="btn menu-filter-btn" data-filter="non-kopi">
+            Non-Kopi
+          </button>
+          <button class="btn menu-filter-btn" data-filter="cemilan">
+            Cemilan
+          </button>
+          <button class="btn menu-filter-btn" data-filter="makanan-berat">
+            Makanan Berat
+          </button>
+          <button class="btn menu-filter-btn" data-filter="dessert">
+            Dessert
+          </button>
+        </div>
+
+        <div
+          class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4"
+          id="menuGrid"
+        >
+          <div class="col menu-item" data-category="kopi">
+            <div class="card h-100 menu-card">
+              <img
+                src="img-dummy/product/iced-americano.jfif"
+                class="card-img-top menu-card-img"
+                alt="Segelas Americano dengan crema tipis di atas permukaan kopi"
+                onerror="
+                  this.src = 'https://placehold.co/400x300?text=Americano'
+                "
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Americano</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Espresso klasik yang diencerkan dengan air panas. Rasa bold
+                  dengan karakter pahit yang bersih.
+                </p>
+                <span class="menu-item-price mt-2">Rp 25.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="col menu-item" data-category="kopi">
+            <div class="card h-100 menu-card">
+              <img
+                src="img-dummy/product/cappucino.jfif"
+                class="card-img-top menu-card-img"
+                alt="Cappuccino dengan busa susu tebal dan taburan bubuk cokelat"
+                onerror="
+                  this.src = 'https://placehold.co/400x300?text=Cappuccino'
+                "
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Cappuccino</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Perpaduan espresso, steamed milk, dan foam susu yang seimbang.
+                  Pilihan pagi yang sempurna.
+                </p>
+                <span class="menu-item-price mt-2">Rp 30.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="col menu-item" data-category="kopi">
+            <div class="card h-100 menu-card">
+              <img
+                src="img-dummy/product/latte-art .jfif"
+                class="card-img-top menu-card-img"
+                alt="Latte art berbentuk daun di atas secangkir kopi susu yang creamy"
+                onerror="this.src = 'https://placehold.co/400x300?text=Latte'"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Latte</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Espresso lembut dengan banyak steamed milk dan sedikit foam.
+                  Cocok untuk yang menyukai rasa kopi lebih ringan.
+                </p>
+                <span class="menu-item-price mt-2">Rp 32.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="col menu-item" data-category="non-kopi">
+            <div class="card h-100 menu-card">
+              <img
+                src="img-dummy/product/matcha-latte.jfif"
+                class="card-img-top menu-card-img"
+                alt="Matcha latte berwarna hijau cerah dengan lapisan susu putih di bagian bawah"
+                onerror="
+                  this.src = 'https://placehold.co/400x300?text=Matcha+Latte'
+                "
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Matcha Latte</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Matcha Jepang premium dikocok dengan susu segar. Rasa earthy
+                  yang menyegarkan tanpa kafein berlebih.
+                </p>
+                <span class="menu-item-price mt-2">Rp 32.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="col menu-item" data-category="non-kopi">
+            <div class="card h-100 menu-card">
+              <img
+                src="https://placehold.co/400x300?text=Teh+Tarik"
+                class="card-img-top menu-card-img"
+                alt="Teh tarik berbusa dengan warna merah keemasan yang khas"
+                onerror="
+                  this.src = 'https://placehold.co/400x300?text=Teh+Tarik'
+                "
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Teh Tarik</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Teh hitam pekat dengan susu kental manis yang ditarik hingga
+                  berbusa. Minuman klasik Melayu yang hangat dan manis.
+                </p>
+                <span class="menu-item-price mt-2">Rp 20.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="col menu-item" data-category="cemilan">
+            <div class="card h-100 menu-card">
+              <img
+                src="https://placehold.co/400x300?text=Croissant"
+                class="card-img-top menu-card-img"
+                alt="Croissant berlapis-lapis dengan warna cokelat keemasan yang renyah di luar"
+                onerror="
+                  this.src = 'https://placehold.co/400x300?text=Croissant'
+                "
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Croissant</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Pastri mentega berlapis-lapis yang dipanggang segar setiap
+                  pagi. Renyah di luar, lembut dan beraroma di dalam.
+                </p>
+                <span class="menu-item-price mt-2">Rp 28.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="col menu-item" data-category="makanan-berat">
+            <div class="card h-100 menu-card">
+              <img
+                src="img-dummy/product/nasi-goreng.jfif"
+                class="card-img-top menu-card-img"
+                alt="Nasi goreng spesial dengan telur mata sapi, ayam suwir, dan kerupuk"
+                onerror="
+                  this.src = 'https://placehold.co/400x300?text=Nasi+Goreng'
+                "
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Nasi Goreng</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Nasi goreng spesial dengan bumbu rempah khas cafe kami,
+                  dilengkapi telur mata sapi dan ayam suwir pilihan.
+                </p>
+                <span class="menu-item-price mt-2">Rp 45.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="col menu-item" data-category="dessert">
+            <div class="card h-100 menu-card">
+              <img
+                src="img-dummy/product/tiramitsu.jfif"
+                class="card-img-top menu-card-img"
+                alt="Tiramisu berlapis dengan taburan bubuk kakao di atas lapisan mascarpone yang creamy"
+                onerror="
+                  this.src = 'https://placehold.co/400x300?text=Tiramisu'
+                "
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title menu-item-name">Tiramisu</h5>
+                <p class="card-text menu-item-desc flex-grow-1">
+                  Dessert Italia klasik dengan lapisan ladyfinger, krim
+                  mascarpone, dan espresso. Penutup yang mewah untuk hari Anda.
+                </p>
+                <span class="menu-item-price mt-2">Rp 35.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       Services Section — card grid responsif 4 kolom di desktop,
+       2 kolom di tablet, 1 kolom di mobile
+       ============================================= -->
+    <section
+      id="services"
+      class="py-5 section-alt"
+      aria-label="Layanan Dummy Coffee"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="section-divider mx-auto" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="card h-100 service-card text-center">
+              <div class="card-body">
+                <i class="bi bi-shop service-icon mb-3" aria-hidden="true"></i>
+                <h5 class="card-title">Dine-In</h5>
+                <p class="card-text">
+                  Nikmati makan di sini dengan suasana cafe yang nyaman.
+                  Tersedia area indoor dan outdoor. Kapasitas hingga 80 orang.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 service-card text-center">
+              <div class="card-body">
+                <i
+                  class="bi bi-bag-check service-icon mb-3"
+                  aria-hidden="true"
+                ></i>
+                <h5 class="card-title">Take Away</h5>
+                <p class="card-text">
+                  Pesan favoritmu dan nikmati di mana saja. Kemasan ramah
+                  lingkungan dan tahan lama. Tersedia untuk semua item menu.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 service-card text-center">
+              <div class="card-body">
+                <i
+                  class="bi bi-calendar-event service-icon mb-3"
+                  aria-hidden="true"
+                ></i>
+                <h5 class="card-title">Catering &amp; Event</h5>
+                <p class="card-text">
+                  Kami menyediakan layanan catering untuk acara perusahaan
+                  maupun pribadi. Hubungi kami untuk paket custom. Tersedia menu
+                  prasmanan dan set menu.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 service-card text-center">
+              <div class="card-body">
+                <i class="bi bi-wifi service-icon mb-3" aria-hidden="true"></i>
+                <h5 class="card-title">Free Wi-Fi</h5>
+                <p class="card-text">
+                  Koneksi internet cepat tersedia gratis untuk semua pelanggan.
+                  Ideal untuk kerja atau belajar. Kecepatan hingga 100 Mbps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       Gallery Section — grid foto 2 kolom (mobile) / 3 kolom (tablet+)
+       Setiap foto membuka galleryModal saat diklik; src modal diisi JavaScript
+       ============================================= -->
+    <section id="gallery" class="py-5" aria-label="Galeri foto Dummy Coffee">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title">Galeri</h2>
+            <div class="section-divider mx-auto" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="row row-cols-2 row-cols-md-3 g-3">
+          <!-- Foto 1 -->
+          <div class="col">
+            <img
+              src="img-dummy/galery/1.jpg"
+              class="img-fluid gallery-img w-100"
+              alt="Foto suasana Dummy Coffee 1"
+              data-bs-toggle="modal"
+              data-bs-target="#galleryModal"
+              data-src="https://placehold.co/600x400?text=Gallery+1"
+              onerror="this.src = 'https://placehold.co/600x400?text=Gallery'"
+              style="cursor: pointer"
+            />
+          </div>
+
+          <!-- Foto 2 -->
+          <div class="col">
+            <img
+              src="img-dummy/galery/2.jfif"
+              class="img-fluid gallery-img w-100"
+              alt="Foto suasana Dummy Coffee 2"
+              data-bs-toggle="modal"
+              data-bs-target="#galleryModal"
+              data-src="https://placehold.co/600x400?text=Gallery+2"
+              onerror="this.src = 'https://placehold.co/600x400?text=Gallery'"
+              style="cursor: pointer"
+            />
+          </div>
+
+          <!-- Foto 3 -->
+          <div class="col">
+            <img
+              src="img-dummy/galery/3.jfif"
+              class="img-fluid gallery-img w-100"
+              alt="Foto suasana Dummy Coffee 3"
+              data-bs-toggle="modal"
+              data-bs-target="#galleryModal"
+              data-src="https://placehold.co/600x400?text=Gallery+3"
+              onerror="this.src = 'https://placehold.co/600x400?text=Gallery'"
+              style="cursor: pointer"
+            />
+          </div>
+
+          <!-- Foto 4 -->
+          <div class="col">
+            <img
+              src="img-dummy/galery/2.jfif"
+              class="img-fluid gallery-img w-100"
+              alt="Foto suasana Dummy Coffee 4"
+              data-bs-toggle="modal"
+              data-bs-target="#galleryModal"
+              data-src="https://placehold.co/600x400?text=Gallery+4"
+              onerror="this.src = 'https://placehold.co/600x400?text=Gallery'"
+              style="cursor: pointer"
+            />
+          </div>
+
+          <!-- Foto 5 -->
+          <div class="col">
+            <img
+              src="https://placehold.co/600x400?text=Gallery+5"
+              class="img-fluid gallery-img w-100"
+              alt="Foto suasana Dummy Coffee 5"
+              data-bs-toggle="modal"
+              data-bs-target="#galleryModal"
+              data-src="https://placehold.co/600x400?text=Gallery+5"
+              onerror="this.src = 'https://placehold.co/600x400?text=Gallery'"
+              style="cursor: pointer"
+            />
+          </div>
+
+          <!-- Foto 6 -->
+          <div class="col">
+            <img
+              src="img-dummy/galery/1.jpg"
+              class="img-fluid gallery-img w-100"
+              alt="Foto suasana Dummy Coffee 6"
+              data-bs-toggle="modal"
+              data-bs-target="#galleryModal"
+              data-src="https://placehold.co/600x400?text=Gallery+6"
+              onerror="this.src = 'https://placehold.co/600x400?text=Gallery'"
+              style="cursor: pointer"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       Testimonials Section — Bootstrap Carousel dengan autoplay 5 detik,
+       indicators, tombol prev/next, dan testimonial card di setiap slide
+       ============================================= -->
+    <section
+      id="testimonials"
+      class="py-5 section-alt"
+      aria-label="Ulasan pelanggan Dummy Coffee"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title">Ulasan Pelanggan</h2>
+            <div class="section-divider mx-auto" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="5000"
+          aria-label="Carousel ulasan pelanggan"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1 — Budi Santoso"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2 — Sari Dewi"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3 — Rian Pratama"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide-to="3"
+              aria-label="Slide 4 — Maya Kusuma"
+            ></button>
+          </div>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="testimonial-card text-center mx-auto">
+                <img
+                  src="https://placehold.co/80x80?text=BS"
+                  class="testimonial-avatar rounded-circle mb-3"
+                  alt="Foto profil Budi Santoso"
+                  onerror="this.src = 'https://placehold.co/80x80?text=Avatar'"
+                />
+                <div
+                  class="testimonial-stars mb-2"
+                  aria-label="Rating 5 bintang"
+                >
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                </div>
+
+                <p class="testimonial-text">
+                  "Kopi di sini benar-benar istimewa! Americano-nya pas di lidah
+                  dan suasananya sangat mendukung untuk kerja."
+                </p>
+
+                <strong class="testimonial-name">Budi Santoso</strong>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="testimonial-card text-center mx-auto">
+                <img
+                  src="https://placehold.co/80x80?text=SD"
+                  class="testimonial-avatar rounded-circle mb-3"
+                  alt="Foto profil Sari Dewi"
+                  onerror="this.src = 'https://placehold.co/80x80?text=Avatar'"
+                />
+
+                <div
+                  class="testimonial-stars mb-2"
+                  aria-label="Rating 5 bintang"
+                >
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                </div>
+
+                <p class="testimonial-text">
+                  "Tempat favorit saya untuk meeting informal. Stafnya ramah dan
+                  Wi-Fi-nya kencang banget."
+                </p>
+
+                <strong class="testimonial-name">Sari Dewi</strong>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="testimonial-card text-center mx-auto">
+                <img
+                  src="https://placehold.co/80x80?text=RP"
+                  class="testimonial-avatar rounded-circle mb-3"
+                  alt="Foto profil Rian Pratama"
+                  onerror="this.src = 'https://placehold.co/80x80?text=Avatar'"
+                />
+
+                <div
+                  class="testimonial-stars mb-2"
+                  aria-label="Rating 5 bintang"
+                >
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                </div>
+
+                <p class="testimonial-text">
+                  "Tiramisu-nya enak banget, tidak terlalu manis. Pasti bakal
+                  balik lagi ke sini!"
+                </p>
+
+                <strong class="testimonial-name">Rian Pratama</strong>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="testimonial-card text-center mx-auto">
+                <img
+                  src="https://placehold.co/80x80?text=MK"
+                  class="testimonial-avatar rounded-circle mb-3"
+                  alt="Foto profil Maya Kusuma"
+                  onerror="this.src = 'https://placehold.co/80x80?text=Avatar'"
+                />
+
+                <div
+                  class="testimonial-stars mb-2"
+                  aria-label="Rating 5 bintang"
+                >
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                </div>
+
+                <p class="testimonial-text">
+                  "Cafe paling nyaman yang pernah saya kunjungi. Desain
+                  interiornya estetik dan instagrammable."
+                </p>
+
+                <strong class="testimonial-name">Maya Kusuma</strong>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev"
+            aria-label="Slide sebelumnya"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next"
+            aria-label="Slide berikutnya"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       Location & jam operasional Section — grid foto 2 kolom (mobile) / 3 kolom (tablet+)
+       Setiap foto membuka galleryModal saat diklik; src modal diisi JavaScript
+       ============================================= -->
+    <section id="location" class="py-5" aria-label="Lokasi Dummy Coffee">
+      <div class="container">
+        <!-- Section Heading -->
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title">Temukan Kami</h2>
+            <div class="section-divider mx-auto" aria-hidden="true"></div>
+            <p class="text-muted mt-3">
+              Mampir dan nikmati kopi favoritmu bersama kami.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <!-- Location Information -->
+          <div class="col-lg-5">
+            <div class="location-info h-100">
+              <h3 class="location-title mb-4">Lokasi & Jam Operasional</h3>
+
+              <!-- Address -->
+              <div class="location-item d-flex align-items-start mb-4">
+                <i
+                  class="bi bi-geo-alt-fill location-icon me-3"
+                  aria-hidden="true"
+                ></i>
+
+                <div>
+                  <h6 class="location-label mb-1">Alamat</h6>
+                  <p class="location-text mb-0">
+                    Jl. Kopi No. 17, Menteng,<br />
+                    Jakarta Selatan 10310
+                  </p>
+                </div>
+              </div>
+
+              <!-- Opening Hours -->
+              <div class="location-item d-flex align-items-start mb-4">
+                <i
+                  class="bi bi-clock-fill location-icon me-3"
+                  aria-hidden="true"
+                ></i>
+
+                <div>
+                  <h6 class="location-label mb-1">Jam Operasional</h6>
+                  <p class="location-text mb-0">
+                    Senin – Jumat<br />
+                    12.00 – 22.00 WIB
+                  </p>
+                  <p class="location-text mb-0">
+                    sabtu & Minggu<br />
+                    09.00 – 23.00 WIB
+                  </p>
+                </div>
+              </div>
+
+              <!-- Google Maps Button -->
+              <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-accent"
+              >
+                <i class="bi bi-map me-2" aria-hidden="true"></i>
+                Buka Google Maps
+              </a>
+            </div>
+          </div>
+
+          <!-- Google Maps -->
+          <div class="col-lg-7">
+            <div class="location-map h-100">
+              <iframe
+                src="https://www.google.com/maps?q=Menteng%2C%20Jakarta&output=embed"
+                width="100%"
+                height="100%"
+                style="border: 0; min-height: 400px"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Lokasi Dummy Coffee di Google Maps"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       Contact Section — Bootstrap grid dua kolom:
+       kiri: form kontak, kanan: info kontak
+       Satu kolom di layar < lg (< 992px) — Req 9.5
+       ============================================= -->
+    <section id="contact" class="py-5" aria-label="Hubungi Dummy Coffee">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="section-divider mx-auto" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <!-- novalidate: matikan validasi bawaan browser, gunakan Bootstrap 5 validation -->
+            <form id="contactForm" novalidate>
+              <!-- Nama -->
+              <div class="mb-3">
+                <label for="contactName" class="form-label">Nama Lengkap</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contactName"
+                  name="nama"
+                  placeholder="Contoh: Budi Santoso"
+                  required
+                  autocomplete="name"
+                />
+
+                <div class="valid-feedback">Nama terlihat baik!</div>
+                <div class="invalid-feedback">
+                  Mohon masukkan nama lengkap Anda.
+                </div>
+              </div>
+
+              <!-- Pesan -->
+              <div class="mb-3">
+                <label for="contactMessage" class="form-label">Pesan</label>
+                <textarea
+                  class="form-control"
+                  id="contactMessage"
+                  name="pesan"
+                  rows="5"
+                  placeholder="Tuliskan pesan, pertanyaan, atau reservasi Anda di sini..."
+                  required
+                ></textarea>
+
+                <div class="valid-feedback">Pesan terlihat baik!</div>
+                <div class="invalid-feedback">Mohon masukkan pesan Anda.</div>
+              </div>
+
+              <button type="submit" class="btn btn-accent w-100">
+                <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>
+                Kirim via WhatsApp
+              </button>
+            </form>
+          </div>
+
+          <!-- Kolom kanan — informasi kontak -->
+          <div class="col-lg-6">
+            <h3 class="contact-info-title mb-4">Informasi Kontak</h3>
+
+            <!-- Alamat -->
+            <div class="contact-info-item d-flex align-items-start mb-4">
+              <i
+                class="bi bi-envelope-fill contact-info-icon me-3 flex-shrink-0"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <h6 class="contact-info-label mb-1">Email</h6>
+                <p class="contact-info-text mb-0">DummyCoffee@gmail.com</p>
+              </div>
+            </div>
+            <!-- /.contact-info-item (alamat) -->
+
+            <!-- Telepon -->
+            <div class="contact-info-item d-flex align-items-start mb-4">
+              <i
+                class="bi bi-telephone-fill contact-info-icon me-3 flex-shrink-0"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <h6 class="contact-info-label mb-1">Telepon</h6>
+                <p class="contact-info-text mb-0">Admin Dummy COffee</p>
+                <p class="contact-info-text mb-0">+62 812-3456-7890</p>
+              </div>
+            </div>
+            <!-- /.contact-info-item (telepon) -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       Footer — tiga kolom: (1) brand, (2) quick links, (3) sosmed
+       Baris copyright dengan tahun dinamis via JavaScript (Task 11.3)
+       ============================================= -->
+    <footer class="footer-dark" aria-label="Footer Dummy Coffee">
+      <div class="container py-5">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <h5 class="footer-brand mb-3">Dummy Coffee</h5>
+            <p class="footer-desc">
+              Cafe modern yang menghadirkan cita rasa kopi terbaik dengan
+              suasana yang hangat dan nyaman.
+            </p>
+          </div>
+
+          <div class="col-md-4">
+            <h5 class="footer-heading mb-3">Tautan Cepat</h5>
+            <ul class="footer-links list-unstyled">
+              <li><a href="#hero" class="footer-link">Beranda</a></li>
+              <li><a href="#about" class="footer-link">Tentang Kami</a></li>
+              <li><a href="#menu" class="footer-link">Menu</a></li>
+              <li><a href="#services" class="footer-link">Layanan</a></li>
+              <li><a href="#gallery" class="footer-link">Galeri</a></li>
+              <li><a href="#testimonials" class="footer-link">Ulasan</a></li>
+              <li><a href="#contact" class="footer-link">Kontak</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5 class="footer-heading mb-3">Ikuti Kami</h5>
+            <div class="footer-social d-flex gap-3">
+              <a
+                href="https://instagram.com"
+                class="footer-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kunjungi Instagram Dummy Coffee"
+              >
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+                <span class="visually-hidden">Instagram</span>
+              </a>
+
+              <a
+                href="https://facebook.com"
+                class="footer-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kunjungi Facebook Dummy Coffee"
+              >
+                <i class="bi bi-facebook" aria-hidden="true"></i>
+                <span class="visually-hidden">Facebook</span>
+              </a>
+
+              <a
+                href="https://twitter.com"
+                class="footer-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kunjungi Twitter Dummy Coffee"
+              >
+                <i class="bi bi-twitter-x" aria-hidden="true"></i>
+                <span class="visually-hidden">Twitter / X</span>
+              </a>
+
+              <a
+                href="https://tiktok.com"
+                class="footer-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kunjungi TikTok Dummy Coffee"
+              >
+                <i class="bi bi-tiktok" aria-hidden="true"></i>
+                <span class="visually-hidden">TikTok</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Baris copyright: tahun diisi JS via #currentYear (Task 11.3) -->
+      <div class="footer-bottom text-center py-3">
+        <p class="mb-0">
+          &copy; <span id="currentYear"></span> Dummy Coffee. Hak cipta
+          dilindungi.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Gallery Modal — ditampilkan saat foto diklik, src diisi JavaScript (Task 7.3) -->
+    <!-- <div
+      class="modal fade"
+      id="galleryModal"
+      tabindex="-1"
+      aria-label="Foto galeri Dummy Coffee"
+      aria-modal="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Tutup galeri"
+            ></button>
+          </div>
+          <div class="modal-body text-center p-0">
+            <img
+              id="modalImage"
+              src=""
+              class="img-fluid"
+              alt="Foto galeri yang diperbesar"
+            />
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- 1. Bootstrap 5.3.8 JS Bundle (CDN jsDelivr) — mencakup Popper.js bawaan -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

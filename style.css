@@ -1,0 +1,806 @@
+/*
+ * style.css — Dummy Coffee Website
+ * Custom stylesheet untuk website company profile Dummy Coffee.
+ * Dimuat SETELAH Bootstrap 5.3.8 agar semua override bekerja dengan benar.
+ *
+ * Urutan section mengikuti urutan halaman:
+ *   :root (Design Tokens)
+ *   → Global Base Styles
+ *   → Shared Section Utilities
+ *   → Navbar
+ *   → Hero
+ *   → About
+ *   → Menu
+ *   → Services
+ *   → Gallery
+ *   → Testimonials
+ *   → Contact
+ *   → Footer
+ *   → Utilities / Responsive
+ */
+
+/* ==========================================================================
+   :root — Design Tokens (CSS Custom Properties)
+   Definisikan semua nilai warna, font, dan transisi di sini agar mudah diubah
+   secara terpusat tanpa harus mencari-cari di seluruh file.
+   ========================================================================== */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-accent: #6f4e37;
+  --color-accent-light: #c8a882;
+  --color-muted: #6c757d;
+  --color-surface: #f5f5f5;
+  --color-dark: #1a1a1a;
+  --color-navbar-solid: rgba(26, 26, 26, 0.97);
+  --font-heading: "DM Serif Display", serif;
+  --font-body: "Inter", sans-serif;
+  --transition-base: 0.3s ease;
+  --border-radius-card: 0.75rem;
+}
+
+/* ==========================================================================
+   Global Base Styles
+   Atur font body dan warna latar default seluruh halaman.
+   Harus ditempatkan sebelum semua section agar menjadi baseline yang konsisten.
+   ========================================================================== */
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+/* Garis dekorasi di bawah section title (.section-divider) — visual separator
+   tipis berwarna aksen kopi untuk mempertegas awal konten setiap section */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+/* Background alternatif untuk section genap (.section-alt) — menciptakan
+   ritme visual terang/gelap antar section agar halaman tidak monoton */
+.section-alt {
+  background-color: var(--color-surface);
+}
+
+/* ==========================================================================
+   Navbar
+   Fixed di atas viewport setiap saat (Req 2.2).
+   State awal: transparan — teks putih agar kontras di atas hero image.
+   State setelah scroll (kelas .scrolled ditambah JS Task 2.3):
+   background berubah ke solid gelap + box-shadow.
+   ========================================================================== */
+
+/* Navbar: state dasar (transparan saat posisi scroll di atas halaman) —
+   melayang di atas hero image tanpa menutupi background dengan warna solid */
+#mainNavbar {
+  background-color: transparent;
+  transition:
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Navbar Brand — nama cafe menggunakan font heading dengan warna aksen cream/latte
+   agar menonjol dan memiliki karakter brand yang kuat */
+#mainNavbar .navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent-light) !important;
+  letter-spacing: 0.02em;
+}
+
+/* Nav Links: warna putih semi-transparan sebagai state default —
+   kontras di atas hero image yang gelap, sebelum navbar menjadi solid */
+#mainNavbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  position: relative;
+  transition: color var(--transition-base);
+}
+
+/* Garis bawah dekoratif pada nav link — pseudo-element yang muncul dengan
+   animasi width dari 0 saat hover atau saat link aktif */
+#mainNavbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0.75rem;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent-light);
+  transition: width var(--transition-base);
+}
+
+/* Nav Link: state hover dan active — warna putih penuh dan garis dekoratif muncul
+   untuk memberikan umpan balik visual yang jelas kepada pengguna */
+#mainNavbar .nav-link:hover,
+#mainNavbar .nav-link.active {
+  color: #ffffff !important;
+}
+
+/* Tampilkan garis dekoratif bawah saat nav link di-hover atau aktif —
+   animasi width dari 0 ke penuh memberikan efek reveal yang elegan */
+#mainNavbar .nav-link:hover::after,
+#mainNavbar .nav-link.active::after {
+  width: calc(100% - 1.5rem);
+}
+
+/* Navbar Scrolled (.scrolled) — state solid setelah scroll melewati 50px,
+   background berubah ke gelap dan box-shadow muncul untuk kedalaman visual */
+#mainNavbar.scrolled {
+  background-color: var(--color-navbar-solid);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
+/* Hamburger Toggler — border putih agar tombol toggler terlihat
+   di atas background navbar yang transparan/gelap */
+#mainNavbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.55);
+  transition: border-color var(--transition-base);
+}
+
+/* Hamburger Toggler: focus state — outline berwarna brand
+   untuk aksesibilitas keyboard navigation */
+#mainNavbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(200, 168, 130, 0.4);
+}
+
+/* Ikon hamburger — SVG putih kustom agar terlihat di atas
+   background transparan gelap yang tidak mendukung ikon bawaan Bootstrap */
+#mainNavbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255%2C255%2C255%2C0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ==========================================================================
+   Hero Section
+   Section pembuka layar penuh dengan background image/gradient dan overlay gelap.
+   min-height: 100vh memastikan hero mengisi seluruh viewport pertama kali.
+   Overlay via ::before pseudo-element agar teks tetap terbaca (Req 3.2).
+   ========================================================================== */
+
+/* Hero section wrapper — container utama yang memeluk semua konten hero,
+   dengan background image dan pengaturan positioning untuk overlay */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  /* background-image: linear-gradient(
+    135deg,
+    #3d2314 0%,
+    #6f4e37 50%,
+    #c8a882 100%
+  ); */
+  background-image: url(img-dummy/coffee-shop-bg.jpg);
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Overlay gelap hero — pseudo-element yang duduk di atas background
+   namun di bawah konten, memastikan teks headline tetap terbaca (Req 3.2) */
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+/* Kontainer konten hero (.hero-content) — elemen yang benar-benar terlihat oleh
+   pengguna, tampil di atas overlay dengan z-index lebih tinggi */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Headline utama hero (.hero-title) — judul terbesar di halaman,
+   menggunakan font heading dengan ukuran responsif */
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* Subjudul hero (.hero-subtitle) — teks deskriptif di bawah headline,
+   sedikit lebih transparan agar tidak bersaing dengan headline */
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-weight: 300;
+  max-width: 560px;
+}
+
+/* Tombol CTA hero (.hero-btn) — tombol ajakan bertindak utama yang
+   mengarahkan pengguna ke section Menu */
+.hero-btn {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: 2px solid var(--color-accent);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+/* Tombol CTA hero: state hover — beralih ke outline/ghost style
+   untuk umpan balik visual yang jelas saat pengguna mengarahkan kursor */
+.hero-btn:hover {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: var(--color-accent-light);
+}
+
+/* ==========================================================================
+   About Section
+   Layout dua kolom (gambar + teks) dengan list keunggulan dan ikon.
+   Kolom otomatis menjadi satu tumpukan di layar < lg berkat Bootstrap col-lg-6.
+   ========================================================================== */
+
+/* Gambar cafe di kolom kiri About Section — styled dengan sudut bulat
+   dan bayangan untuk tampilan yang lebih polished */
+.about-img {
+  border-radius: var(--border-radius-card);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  width: 100%;
+}
+
+/* Sub-heading di kolom teks About (.about-subtitle) — teks seperti "Kisah Dummy Coffee"
+   yang menggunakan font heading dan warna aksen sebagai visual anchor */
+.about-subtitle {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+}
+
+/* Paragraf deskripsi singkat cafe (.about-description) — teks muted dengan
+   line-height lega untuk kenyamanan membaca paragraf panjang */
+.about-description {
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+
+/* List keunggulan cafe (.about-list) — menghapus indentasi bawaan <ul>
+   agar list sejajar dengan paragraf di atasnya */
+.about-list {
+  padding-left: 0;
+}
+
+/* Satu baris item keunggulan (.about-list-item) — wrapper flexbox
+   untuk ikon + teks yang disusun secara horizontal */
+.about-list-item {
+  gap: 0;
+}
+
+/* Ikon centang di setiap item keunggulan (.about-list-icon) — ikon Bootstrap Icons
+   yang diperbesar dan diberi warna aksen */
+.about-list-icon {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   Menu Section
+   Menampilkan grid card menu dengan tombol filter kategori di atasnya.
+   Filter interaktif dikendalikan oleh JavaScript (script.js → filterMenu()).
+   ========================================================================== */
+
+/* Tombol filter kategori menu (.menu-filter-btn) — tombol berbentuk pill
+   dengan border aksen sebagai state default (non-aktif) */
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--color-accent);
+  font-weight: 600;
+  transition: all var(--transition-base);
+}
+
+.menu-btn:hover {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.menu-filter-btn {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+  border-radius: 50px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 500;
+  transition: all var(--transition-base);
+}
+
+/* Tombol filter: state hover dan active — latar terisi warna aksen
+   sebagai indikator filter yang sedang aktif atau di-hover */
+.menu-filter-btn:hover,
+.menu-filter-btn.active {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Card item menu (.menu-card) — container setiap item menu dengan shadow
+   halus, border-radius, dan hover effect untuk UX yang interaktif */
+.menu-card {
+  border: none;
+  border-radius: var(--border-radius-card);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+/* Card menu: state hover — card terangkat ke atas dengan shadow lebih kuat
+   untuk umpan balik visual yang mengindikasikan elemen interaktif */
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Gambar card menu (.menu-card-img) — tinggi tetap dengan object-fit
+   agar semua gambar proporsional tanpa distorsi */
+.menu-card-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Nama item menu (.menu-item-name) — menggunakan font heading untuk
+   memberikan karakter pada nama produk */
+.menu-item-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Deskripsi item menu (.menu-item-desc) — ukuran lebih kecil dengan warna muted
+   untuk hierarki visual yang jelas di bawah nama item */
+.menu-item-desc {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+/* Harga item menu (.menu-item-price) — bold dan berwarna aksen sebagai
+   elemen yang paling diperhatikan setelah nama item */
+.menu-item-price {
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Services Section
+   Blok ini mengatur tampilan section #services beserta setiap service card
+   di dalamnya: hover effect, ikon, judul, dan teks deskripsi.
+   ========================================================================== */
+
+/* Section services (#services) — background surface (abu-abu terang) sebagai
+   alternating section agar berbeda secara visual dari section putih di sekitarnya */
+#services {
+  background-color: var(--color-surface);
+}
+
+/* Service card (.service-card) — card layanan dengan shadow halus,
+   sudut melengkung, dan background putih kontras di atas surface section */
+.service-card {
+  border: none;
+  border-radius: var(--border-radius-card);
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+/* Service card: state hover — card terangkat lebih jauh (6px) dengan
+   bayangan bernuansa cokelat kopi untuk efek brand yang konsisten */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(111, 78, 55, 0.15);
+}
+
+/* Ikon Bootstrap Icons di dalam service card (.service-icon) —
+   ditampilkan sebagai block agar centering dan sizing bekerja dengan benar */
+.service-icon {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--color-accent);
+}
+
+/* Judul service card (.service-card .card-title) — menggunakan font heading
+   dengan bobot semi-bold untuk hierarki yang jelas */
+.service-card .card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* Teks deskripsi service card (.service-card .card-text) — ukuran lebih kecil,
+   warna muted, dan line-height lega untuk keterbacaan */
+.service-card .card-text {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Gallery Section
+   Grid foto 2 kolom (mobile) / 3 kolom (tablet+) yang menggunakan Bootstrap row-cols.
+   Setiap foto dapat diklik untuk membuka galleryModal (Bootstrap Modal, Task 7.3).
+   ========================================================================== */
+
+/* Foto gallery (.gallery-img) — gambar dengan aspect ratio tetap, cursor pointer,
+   dan transisi untuk hover effect */
+.gallery-img {
+  border-radius: 0.5rem;
+  cursor: pointer;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    opacity var(--transition-base);
+  width: 100%;
+}
+
+/* Foto gallery: state hover — sedikit membesar dan shadow muncul
+   sebagai umpan balik visual sebelum modal dibuka */
+.gallery-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  opacity: 0.92;
+}
+
+/* Gambar di dalam modal gallery — memastikan gambar responsif dan tidak
+   overflow keluar dari viewport saat ditampilkan di layar kecil */
+/* #galleryModal .modal-body img {
+  border-radius: 0.25rem;
+  max-height: 80vh;
+  width: 100%;
+  object-fit: contain;
+} */
+
+/* ==========================================================================
+   Testimonials Section
+   Bootstrap Carousel dengan testimonial card di setiap slide.
+   Section menggunakan section-alt (background abu-abu) untuk alternating rhythm.
+   ========================================================================== */
+
+/* Testimonial card (.testimonial-card) — card putih yang memuat ulasan
+   pelanggan dengan padding lega dan shadow halus */
+.testimonial-card {
+  max-width: 600px;
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: var(--border-radius-card);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+/* Avatar foto profil testimonial (.testimonial-avatar) — gambar lingkaran
+   berukuran tetap dengan border dekoratif berwarna aksen */
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 3px solid var(--color-accent-light);
+}
+
+/* Bintang rating testimonial (.testimonial-stars) — ikon bintang kuning/emas
+   yang sesuai konvensi visual untuk rating */
+.testimonial-stars {
+  color: #f5a623;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+/* Teks ulasan testimonial (.testimonial-text) — italic untuk memperkuat
+   kesan kutipan dengan line-height lega */
+.testimonial-text {
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* Nama pelanggan testimonial (.testimonial-name) — font heading dengan
+   warna aksen untuk memberi karakter pada identitas pelanggan */
+.testimonial-name {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+/* Override tombol kontrol carousel testimonial — mempersempit area klik
+   dan sedikit menurunkan opacity agar tidak mendominasi konten */
+#testimonialCarousel .carousel-control-prev,
+#testimonialCarousel .carousel-control-next {
+  width: 3rem;
+  opacity: 0.7;
+}
+
+/* Carousel indicators testimonial — titik navigasi yang berbentuk lingkaran
+   dengan warna brand untuk mempertegas posisi slide */
+#testimonialCarousel .carousel-indicators [data-bs-target] {
+  background-color: var(--color-accent);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+/* ========================================
+   LOCATION SECTION
+   ======================================== */
+
+.location-info {
+  padding: 2rem;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius-card);
+}
+
+.location-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+.location-item {
+  display: flex;
+}
+
+.location-icon {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  width: 24px;
+}
+
+.location-label {
+  font-weight: 600;
+}
+
+.location-text {
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.location-map {
+  overflow: hidden;
+  min-height: 400px;
+  border-radius: var(--border-radius-card);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.location-map iframe {
+  display: block;
+  min-height: 400px;
+}
+
+/* ==========================================================================
+   Contact Section
+   Dua kolom: form kontak (kiri) dan info kontak (kanan).
+   Satu kolom di layar < lg berkat Bootstrap col-lg-6.
+   ========================================================================== */
+
+/* Tombol submit form (.btn-accent) — tombol kustom berwarna brand yang
+   digunakan untuk submit form kontak */
+.btn-accent {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: 2px solid var(--color-accent);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all var(--transition-base);
+  padding: 0.75rem 1.5rem;
+}
+
+/* Tombol submit form: state hover — background lebih gelap untuk
+   umpan balik visual yang jelas saat pengguna mengarahkan kursor */
+.btn-accent:hover {
+  background-color: #5a3d2b;
+  border-color: #5a3d2b;
+  color: #ffffff;
+}
+
+/* Judul kolom info kontak (.contact-info-title) — menggunakan font heading
+   untuk hierarki yang konsisten dengan heading di section lain */
+.contact-info-title {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  font-size: 1.5rem;
+}
+
+/* Ikon info kontak (.contact-info-icon) — ikon Bootstrap Icons yang diperbesar
+   dan diberi warna aksen untuk konsistensi brand */
+.contact-info-icon {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin-top: 0.1rem;
+}
+
+/* Label info kontak (.contact-info-label) — teks uppercase semi-bold untuk
+   memberi kesan label yang formal dan mudah di-scan */
+.contact-info-label {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Teks isi info kontak (.contact-info-text) — warna muted untuk
+   membedakan isi dari label secara visual */
+.contact-info-text {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Link di info kontak (.contact-link) — tautan nomor telepon berwarna aksen
+   tanpa underline untuk tampilan yang bersih */
+.contact-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+/* Link info kontak: state hover — warna lebih gelap dan underline muncul
+   sebagai umpan balik visual yang mengindikasikan link dapat diklik */
+.contact-link:hover {
+  color: var(--color-dark);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Footer
+   Tiga kolom: brand, quick links, social media.
+   Background gelap (--color-dark) dengan teks kontras (putih/abu muda).
+   Req 10.4: background gelap + teks kontras.
+   ========================================================================== */
+
+/* Footer wrapper (.footer-dark) — background hampir hitam dengan teks putih
+   semi-transparan untuk kontras yang optimal (Req 10.4) */
+.footer-dark {
+  background-color: var(--color-dark);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Nama brand di footer (.footer-brand) — font heading berwarna aksen cream/latte
+   sebagai identitas brand di bagian bawah halaman */
+.footer-brand {
+  font-family: var(--font-heading);
+  color: var(--color-accent-light);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Deskripsi singkat brand di footer (.footer-desc) — teks kecil lebih transparan
+   sebagai konten sekunder di bawah brand name */
+.footer-desc {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Heading kolom footer (.footer-heading) — uppercase semi-bold untuk memberi
+   identitas visual yang formal pada setiap kolom footer */
+.footer-heading {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* List quick links footer (.footer-links) — menghapus margin bawaan <ul>
+   yang tidak diperlukan di dalam footer */
+.footer-links {
+  margin-bottom: 0;
+}
+
+/* Link navigasi cepat di footer (.footer-link) — teks putih semi-transparan
+   dengan efek hover indent dan perubahan warna */
+.footer-link {
+  display: block;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  transition:
+    color var(--transition-base),
+    padding-left var(--transition-base);
+}
+
+/* Link footer: state hover — warna lebih terang dan indent kecil muncul
+   sebagai umpan balik visual yang subtle */
+.footer-link:hover {
+  color: var(--color-accent-light);
+  padding-left: 0.5rem;
+}
+
+/* Container ikon sosmed (.footer-social) — flexbox dengan wrap untuk
+   mengakomodasi beberapa ikon sosmed */
+.footer-social {
+  flex-wrap: wrap;
+}
+
+/* Link ikon sosmed (.footer-social-link) — ikon berukuran cukup besar
+   dengan warna semi-transparan dan efek hover lift */
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition:
+    color var(--transition-base),
+    transform var(--transition-base);
+}
+
+/* Link ikon sosmed: state hover — warna lebih terang dan ikon bergerak ke atas
+   sebagai umpan balik visual yang playful */
+.footer-social-link:hover {
+  color: var(--color-accent-light);
+  transform: translateY(-3px);
+}
+
+/* Baris copyright di bagian bawah footer (.footer-bottom) — background lebih
+   gelap dari footer utama untuk memisahkan copyright secara visual */
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   Utilities / Responsive
+   Custom utility class dan media query tambahan untuk responsivitas.
+   ========================================================================== */
+
+/* Scroll offset untuk semua section (section[id]) — mencegah heading section
+   tertutup di balik navbar fixed saat anchor link langsung diakses */
+section[id] {
+  scroll-margin-top: 80px;
+}
